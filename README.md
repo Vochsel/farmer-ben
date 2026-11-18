@@ -4,9 +4,29 @@ i'm [vochsel](https://github.com/Vochsel). this is my fork of [pstack](https://g
 
 i'm customizing pstack to fit how i work: its skills, playbooks, principles, and model defaults. the skills, the playbooks, the principles, and the thinking behind them are poteto's work. if you want the original, use [upstream pstack](https://github.com/cursor/plugins/tree/main/pstack).
 
+## install this fork
+
+in claude code:
+
+```bash
+/plugin marketplace add Vochsel/farmer-ben
+```
+
+```bash
+/plugin install pstack@farmer-ben
+```
+
+the plugin keeps the name `pstack`, so uninstall `pstack@cursor-plugins` first if you have it. then start a task with `/pstack:vochsel-mode`.
+
 ## what's changed from upstream
 
-nothing yet. this fork starts from pstack 0.15.43 at upstream commit [`93b916d`](https://github.com/cursor/plugins/commit/93b916d4a1e806507e22f4716b352fa91f2b227e) and keeps poteto's commit history for pstack. i'll list my changes here as i make them.
+this fork starts from pstack 0.15.43 at upstream commit [`93b916d`](https://github.com/cursor/plugins/commit/93b916d4a1e806507e22f4716b352fa91f2b227e) and keeps poteto's commit history for pstack. since then:
+
+- [`/vochsel-mode`](./skills/vochsel-mode/SKILL.md) is my mode skill. it runs on top of `poteto-mode` and changes how agents read my requests, reply, ship, and prove ui work. [`/automate-me`](./skills/automate-me/SKILL.md) drafted it from about 150 of my recent claude code sessions.
+- [`worker.md`](./skills/poteto-mode/worker.md) tells delegated agents never to merge or push to main, to follow the repo's own PR template, and to put before and after screenshots on a `-shots` branch.
+- the [opening a pr](./skills/poteto-mode/playbooks/opening-a-pr.md) playbook waits for me to ask before it opens a PR in a session i'm driving. it also follows the repo's PR template and adds the screenshots.
+- the [babysit](./skills/poteto-mode/playbooks/babysit.md) playbook merges the latest main into a conflicted PR and fixes it, instead of stopping to report the conflict.
+- [`.claude-plugin/`](./.claude-plugin/) holds the manifests that let claude code install this fork.
 
 ## pulling in upstream changes
 
@@ -46,7 +66,7 @@ fork it. improve it. make it yours. PRs are welcome!
 
 ## install
 
-*(fork note)* this fork isn't published to any plugin marketplace, so these commands install poteto's upstream pstack, not this fork.
+*(fork note)* these commands install poteto's upstream pstack. to install this fork instead, see [install this fork](#install-this-fork) at the top.
 
 ```bash
 /add-plugin pstack
