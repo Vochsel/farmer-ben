@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pstack",
+  "description": "vochsel's fork of poteto's pstack. if you want to go fast, go deep first. rigorous agent workflows you can parallelize with confidence.",
+  "author": {
+    "name": "Lauren Tan"
+  },
+  "homepage": "https://github.com/Vochsel/farmer-ben",
+  "repository": "https://github.com/Vochsel/farmer-ben",
+  "license": "MIT",
+  "keywords": [
+    "pstack",
+    "poteto-mode",
+    "vochsel-mode",
+    "workflow",
+    "principles",
+    "agent-style",
+    "subagents",
+    "unslop"
+  ]
+}
