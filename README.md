@@ -1,4 +1,36 @@
-# pstack
+# pstack, vochsel's fork
+
+i'm [vochsel](https://github.com/Vochsel). this is my fork of [pstack](https://github.com/cursor/plugins/tree/main/pstack), the agent workflow plugin by [poteto](https://x.com/poteto) (Lauren Tan). poteto's readme says "fork it. improve it. make it yours." so that's what i'm doing.
+
+i'm customizing pstack to fit how i work: its skills, playbooks, principles, and model defaults. the skills, the playbooks, the principles, and the thinking behind them are poteto's work. if you want the original, use [upstream pstack](https://github.com/cursor/plugins/tree/main/pstack).
+
+## what's changed from upstream
+
+nothing yet. this fork starts from pstack 0.15.43 at upstream commit [`93b916d`](https://github.com/cursor/plugins/commit/93b916d4a1e806507e22f4716b352fa91f2b227e) and keeps poteto's commit history for pstack. i'll list my changes here as i make them.
+
+## pulling in upstream changes
+
+split pstack's history out of a full clone of [cursor/plugins](https://github.com/cursor/plugins):
+
+```bash
+git -C <path-to-cursor-plugins> subtree split --prefix=pstack -b pstack-only
+```
+
+then merge it from this repo:
+
+```bash
+git fetch <path-to-cursor-plugins> pstack-only && git merge FETCH_HEAD
+```
+
+## credit
+
+pstack is by [poteto](https://x.com/poteto) and released under the MIT license. the [LICENSE](./LICENSE) keeps poteto's copyright notice.
+
+---
+
+## about pstack, in poteto's words
+
+> the rest of this readme is poteto's original, so "i" from here on means poteto. i've only changed the parts that are wrong for a fork, each marked *(fork note)*.
 
 i'm [poteto](https://x.com/poteto). i'm not a president or ceo, but i've worked with millions of lines of code at Meta, Netflix, and Cursor. i'm also on the react core team where i help build and maintain react compiler.
 
@@ -13,6 +45,8 @@ there's a growing sense that ai writes too much slop code. i agree. i don't want
 fork it. improve it. make it yours. PRs are welcome! 
 
 ## install
+
+*(fork note)* this fork isn't published to any plugin marketplace, so these commands install poteto's upstream pstack, not this fork.
 
 ```bash
 /add-plugin pstack
@@ -29,7 +63,7 @@ claude code leaves auto-update off for third-party marketplaces, so pstack stays
 
 claude code prefixes plugin commands and agents, so `/poteto-mode` is `/pstack:poteto-mode`. the [claude code adapter](./docs/harness/claude-code.md) maps every other cursor name. in claude code, `/pstack:setup-pstack` writes your model choices to `~/.claude/rules/pstack-models.md`, and a step that needs a cursor-only feature, such as bugbot or automations, is skipped with a one-line note.
 
-claude code installs a generated copy of pstack, including this readme and the guide, from [`harness/pstack/`](https://github.com/cursor/plugins/tree/main/harness/pstack) at the repository root. after you change pstack, run `node scripts/generate-pstack-harness-trees.mjs` from the repository root and commit the result. ci fails while the generated copy is out of date.
+*(fork note)* upstream, claude code installs a generated copy of pstack from [`harness/pstack/`](https://github.com/cursor/plugins/tree/main/harness/pstack), built by `scripts/generate-pstack-harness-trees.mjs`. both live at the root of cursor/plugins, so this fork has neither.
 
 ## get started
 
