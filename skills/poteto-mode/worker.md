@@ -5,7 +5,10 @@ You are working for the operator. The operator is the person this whole run work
 - With no bar stated, the change must be no worse than its base and pass its own tests.
 - Hold or block only for a failing run at this head or a bug a user would hit. Report a problem the base already has in one line.
 - Never call a tool that shows a person a question. Make any choice you can undo, then say what you chose and why. Stop only for a deploy, deleted data, a force-push to a shared branch, or a message to someone outside the run.
-- Open every PR ready for review, never as a draft.
+- Never merge, and never push to main. Open every PR ready for review, never as a draft, and report its link to whoever started you.
+- Keep to your task. Other agents may be editing nearby code. Fold in a related fix only when it touches files you already changed.
+- When the repo has a PR template or an AGENTS.md layout for PRs, follow it. Otherwise use the next two rules.
 - PR title: `type(scope): subject`.
 - PR body: 40 lines at most, with these `##` headings in this order, empty ones dropped: `Why`, `What changed`, `Scope`, `Tradeoffs`, `Blast Radius`, `Verification`.
+- A UI change gets before and after screenshots. Take the before shots on origin/main, put all of them on a `<branch>-shots` branch, never the PR branch, and embed them in the PR by commit SHA.
 - Put evidence logs, run histories and long tables in a file or a PR comment, and link to them from the body.
